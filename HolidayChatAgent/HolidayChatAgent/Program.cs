@@ -1,9 +1,13 @@
+using HolidayChatAgent.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+
+builder.Services.AddApplication();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
