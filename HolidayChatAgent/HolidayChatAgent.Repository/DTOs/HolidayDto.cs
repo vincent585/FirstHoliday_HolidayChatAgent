@@ -3,7 +3,8 @@
     public class HolidayDto
     {
         public int Id { get; set; }
-        public string City { get; set; } = default!;
+        public string HotelName { get; set; } = default!;
+        public string? City { get; set; }
         public string Continent { get; set; } = default!;
         public string Country { get; set; } = default!;
         public string Category { get; set; } = default!;
