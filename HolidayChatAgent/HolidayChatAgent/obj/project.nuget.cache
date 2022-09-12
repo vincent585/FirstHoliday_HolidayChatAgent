@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "dgSpecHash": "iRxSZenq9cNFeqiGzu4F/bq3cdSQnP78OW7uG7FUfK0/0QHQqz5TuHaLSSJAP5YkkxifE4ozC/rUQZOxmcxpcg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\vincent.klimjack\\source\\repos\\vincent585\\FirstHoliday_HolidayChatAgent\\HolidayChatAgent\\HolidayChatAgent\\HolidayChatAgent.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1803",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "You are running the 'restore' operation with an 'HTTP' source, 'http://nuget.harrogate.jet2.com/api/v2'. Non-HTTPS access will be removed in a future version. Consider migrating to an 'HTTPS' source."
+    },
+    {
+      "code": "NU1803",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "You are running the 'restore' operation with an 'HTTP' source, 'http://nuget.harrogate.jet2.com/api/v2/'. Non-HTTPS access will be removed in a future version. Consider migrating to an 'HTTPS' source."
+    }
+  ]
+}
