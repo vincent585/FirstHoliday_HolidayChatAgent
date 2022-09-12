@@ -12,7 +12,7 @@ namespace HolidayChatAgent.Repository.Repositories
 
         public HolidayRepository(IDbConnectionFactory dbConnectionFactory)
         {
-            _dbConnectionFactory = dbConnectionFactory;
+            _dbConnectionFactory = dbConnectionFactory ?? throw new ArgumentNullException(nameof(dbConnectionFactory));
         }
 
         public async Task<IEnumerable<HolidayDto>> GetAllHolidaysAsync()
