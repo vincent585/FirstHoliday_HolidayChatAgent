@@ -66,6 +66,7 @@
     <Build Include="Tables\Categories.sql" />
     <Build Include="Tables\TempRatings.sql" />
     <Build Include="Tables\Locations.sql" />
+    <Build Include="Stored Procedures\Holidays_GetAll.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="HolidayChatAgent.Database.publish.xml" />
