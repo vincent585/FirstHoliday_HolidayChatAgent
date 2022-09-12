@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HolidayChatAgent", "Holiday
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "HolidayChatAgent.Database", "HolidayChatAgent.Database\HolidayChatAgent.Database.sqlproj", "{A7B4F11E-AFDE-4C77-9A64-94133DA5445A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolidayChatAgent.Repository", "HolidayChatAgent.Repository\HolidayChatAgent.Repository.csproj", "{55A4CC16-9B9F-4F8C-8918-B561DE2B5DAA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HolidayChatAgent.Repository", "HolidayChatAgent.Repository\HolidayChatAgent.Repository.csproj", "{55A4CC16-9B9F-4F8C-8918-B561DE2B5DAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolidayChatAgent.Services", "HolidayChatAgent.Services\HolidayChatAgent.Services.csproj", "{A08E06C8-BA97-4F77-91C6-22458F8BF79F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +31,10 @@ Global
 		{55A4CC16-9B9F-4F8C-8918-B561DE2B5DAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55A4CC16-9B9F-4F8C-8918-B561DE2B5DAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55A4CC16-9B9F-4F8C-8918-B561DE2B5DAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A08E06C8-BA97-4F77-91C6-22458F8BF79F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A08E06C8-BA97-4F77-91C6-22458F8BF79F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A08E06C8-BA97-4F77-91C6-22458F8BF79F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A08E06C8-BA97-4F77-91C6-22458F8BF79F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
