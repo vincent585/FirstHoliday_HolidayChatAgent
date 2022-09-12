@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolidayChatAgent", "HolidayChatAgent\HolidayChatAgent.csproj", "{30F06362-B3AE-479A-8892-B76A0361B4EC}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "HolidayChatAgent.Database", "HolidayChatAgent.Database\HolidayChatAgent.Database.sqlproj", "{A7B4F11E-AFDE-4C77-9A64-94133DA5445A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,12 @@ Global
 		{30F06362-B3AE-479A-8892-B76A0361B4EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30F06362-B3AE-479A-8892-B76A0361B4EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30F06362-B3AE-479A-8892-B76A0361B4EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7B4F11E-AFDE-4C77-9A64-94133DA5445A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7B4F11E-AFDE-4C77-9A64-94133DA5445A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7B4F11E-AFDE-4C77-9A64-94133DA5445A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{A7B4F11E-AFDE-4C77-9A64-94133DA5445A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7B4F11E-AFDE-4C77-9A64-94133DA5445A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7B4F11E-AFDE-4C77-9A64-94133DA5445A}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
