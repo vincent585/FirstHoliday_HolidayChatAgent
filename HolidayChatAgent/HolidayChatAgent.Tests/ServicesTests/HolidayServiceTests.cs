@@ -1,6 +1,7 @@
 ﻿using AutoFixture;
 using AutoMapper;
 using FluentAssertions;
+using HolidayChatAgent.Repository.DTOs;
 using HolidayChatAgent.Repository.Interfaces;
 using HolidayChatAgent.Services.Services;
 using Moq;
@@ -37,6 +38,14 @@ namespace HolidayChatAgent.Tests.ServicesTests
         {
             var constructor = () => new HolidayService(_mapperMock.Object, null);
             constructor.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("holidayRepository");
+        }
+
+        [Test]
+        public async Task GetRecommendedHolidaysAsync_WhenCalled_CallsHolidayRepository()
+        {
+            await _sut.GetRecommendedHolidaysAsync();
+
+            _holidayRepositoryMock.Verify(x => x.GetAllHolidaysAsync(), Times.Once);
         }
     }
 }

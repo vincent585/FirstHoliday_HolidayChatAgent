@@ -22,7 +22,7 @@ namespace HolidayChatAgent.Services.Services
 
             // TODO - Create and implement a IHolidayFilter to call _holidayFilter.FilterHolidays(holidayDtos);
 
-            throw new NotImplementedException();
+            return _mapper.Map<IEnumerable<HolidayDetail>>(holidayDtos);
         }
     }
 }
