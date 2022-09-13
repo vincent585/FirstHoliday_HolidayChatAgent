@@ -19,6 +19,7 @@
   <ItemGroup>
     <ProjectReference Include="..\HolidayChatAgent.Repository\HolidayChatAgent.Repository.csproj" />
     <ProjectReference Include="..\HolidayChatAgent.Services\HolidayChatAgent.Services.csproj" />
+    <ProjectReference Include="..\HolidayChatAgent\HolidayChatAgent.csproj" />
   </ItemGroup>
 
 </Project>
