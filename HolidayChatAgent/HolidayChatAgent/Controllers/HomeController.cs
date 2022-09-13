@@ -10,11 +10,9 @@ namespace HolidayChatAgent.Controllers
     {
         private readonly IHolidayService _holidayService;
         private readonly IMapper _mapper;
-        private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger, IHolidayService holidayService, IMapper mapper)
+        public HomeController(IHolidayService holidayService, IMapper mapper)
         {
-            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _holidayService = holidayService ?? throw new ArgumentNullException(nameof(holidayService));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
@@ -25,7 +23,7 @@ namespace HolidayChatAgent.Controllers
 
             var holidayViewModel = _mapper.Map<IEnumerable<HolidayViewModel>>(holidays);
 
-            return View(holidays);
+            return View("Index", holidayViewModel);
         }
 
         public IActionResult Privacy()
