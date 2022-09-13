@@ -12,7 +12,7 @@ builder.Services.AddSingleton(new MapperConfiguration(c =>
 {
     c.AddProfile<ApplicationMappings>();
     c.AddProfile<ViewModelMappings>();
-}));
+}).CreateMapper());
 
 builder.Services.AddApplication();
 
