@@ -13,10 +13,6 @@ namespace HolidayChatAgent.Services
         {
             services.AddScoped<IDbConnectionFactory, DbConnectionFactory>();
             services.AddScoped<IHolidayRepository, HolidayRepository>();
-            services.AddSingleton(new MapperConfiguration(c =>
-            {
-                c.AddProfile<ApplicationMappings>();
-            }));
         }
     }
 }

@@ -1,13 +1,22 @@
+using AutoMapper;
+using HolidayChatAgent.Mappings;
 using HolidayChatAgent.Services;
+using HolidayChatAgent.Services.Mappings;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-var app = builder.Build();
+builder.Services.AddSingleton(new MapperConfiguration(c =>
+{
+    c.AddProfile<ApplicationMappings>();
+    c.AddProfile<ViewModelMappings>();
+}));
 
 builder.Services.AddApplication();
+
+var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
