@@ -16,6 +16,7 @@ namespace HolidayChatAgent.Services
             services.AddScoped<IDbConnectionFactory, DbConnectionFactory>();
             services.AddScoped<IHolidayRepository, HolidayRepository>();
             services.AddScoped<IHolidayService, HolidayService>();
+            services.AddScoped<IHolidayFilter, HolidayFilter>();
         }
     }
 }

@@ -1,9 +1,10 @@
 ﻿using HolidayChatAgent.Repository.DTOs;
+using HolidayChatAgent.Services.Models.Domain;
 
 namespace HolidayChatAgent.Services.Interfaces
 {
     public interface IHolidayFilter
     {
-        Task<IEnumerable<HolidayDto>> FilterHolidaysAsync(IEnumerable<HolidayDto> holidays);
+        IEnumerable<HolidayDto> FilterHolidays(IEnumerable<HolidayDto> holidays, UserPreferences preferences);
     }
 }

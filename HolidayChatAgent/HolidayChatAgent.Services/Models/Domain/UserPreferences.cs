@@ -1,4 +1,4 @@
-﻿namespace HolidayChatAgent.Models
+﻿namespace HolidayChatAgent.Services.Models.Domain
 {
     public class UserPreferences
     {

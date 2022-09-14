@@ -1,23 +1,18 @@
 ﻿using HolidayChatAgent.Repository.DTOs;
 using HolidayChatAgent.Services.Interfaces;
-using Microsoft.AspNetCore.Http;
+using HolidayChatAgent.Services.Models.Domain;
 
 namespace HolidayChatAgent.Services.Services
 {
     public class HolidayFilter : IHolidayFilter
     {
-        private readonly IHttpContextAccessor _httpContextAccessor;
-
-        public HolidayFilter(IHttpContextAccessor httpContextAccessor)
+        public  IEnumerable<HolidayDto> FilterHolidays(IEnumerable<HolidayDto> holidays, UserPreferences preferences)
         {
-            _httpContextAccessor = httpContextAccessor;
-        }
+            var filteredHolidays = holidays.Where(x =>
+                x.Category == preferences.Category && x.TempRating == preferences.TempRating &&
+                x.PricePerNight <= decimal.Parse(preferences.PricePerNight));
 
-        public async Task<IEnumerable<HolidayDto>> FilterHolidaysAsync(IEnumerable<HolidayDto> holidays)
-        {
-            var session = _httpContextAccessor.HttpContext.Session;
-
-            throw new NotImplementedException();
+            return filteredHolidays;
         }
     }
 }

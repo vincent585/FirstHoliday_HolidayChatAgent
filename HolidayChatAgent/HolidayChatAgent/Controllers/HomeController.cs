@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using AutoMapper;
 using HolidayChatAgent.Services.Interfaces;
+using HolidayChatAgent.Services.Models.Domain;
 
 namespace HolidayChatAgent.Controllers
 {
@@ -29,9 +30,7 @@ namespace HolidayChatAgent.Controllers
         [HttpPost]
         public async Task<IActionResult> RecommendedHolidays(UserPreferences preferences)
         {
-            HttpContext.Session.Set("Preferences", preferences);
-
-            var recommendations = await _holidayService.GetRecommendedHolidaysAsync();
+            var recommendations = await _holidayService.GetRecommendedHolidaysAsync(preferences);
 
             var holidayViewModel = _mapper.Map<IEnumerable<HolidayViewModel>>(recommendations);
 
