@@ -7,9 +7,13 @@
 
 <hr />
 
+<partial name="_ChatToast"/>
+
 <div class="row row-cols-4 gy-5">
     @foreach (var holiday in Model)
     {
         <partial name="_Card" model="holiday"/>
     }
 </div>
+
+<partial name="_ChatForm"/>
