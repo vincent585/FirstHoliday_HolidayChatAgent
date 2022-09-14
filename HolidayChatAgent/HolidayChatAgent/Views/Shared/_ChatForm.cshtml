@@ -1,0 +1,41 @@
+﻿<div class="offcanvas offcanvas-end" tabindex="-1" id="formWindow" aria-labelledby="formWindowLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="formWindowLabel">Chattington</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div id="chatHistory">
+            Fill out the form below and I will recommend some holidays based on your preferences!
+        </div>
+        <form asp-controller="Home", asp-action="RecommendedHolidays" method="post">
+            <div class="mb-3">
+                <label for="TempRating" class="form-label">What type of weather do you like?</label>
+                <select class="form-select" aria-label="Category select" id="TempRating" name="TempRating">
+                    <option value="cold">Cold</option>
+                    <option value="mild">Mild</option>
+                    <option value="hot">Hot</option>
+                </select>
+            </div>
+            
+            <div class="mb-3">
+                <label for="category" class="form-label">Are you an active or lazy traveler?</label>
+                <select class="form-select" aria-label="Category select" id="category" name="category">
+                    <option value="active">Active</option>
+                    <option value="lazy">Lazy</option>
+                </select>
+            </div>
+            
+            <div class="mb-3">
+                <label for="category" class="form-label">What is your max price per night?</label>
+                <select class="form-select" aria-label="Category select" id="category" name="category">
+                    <option value="300">£300</option>
+                    <option value="200">£200</option>
+                    <option value="100">£100</option>
+                    <option value="50">£50</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Next Question</button>
+        </form>
+    </div>
+</div>
+

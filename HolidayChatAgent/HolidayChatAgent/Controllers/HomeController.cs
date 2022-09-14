@@ -26,9 +26,16 @@ namespace HolidayChatAgent.Controllers
             return View("Index", holidayViewModel);
         }
 
-        public IActionResult Privacy()
+        [HttpPost]
+        public async Task<IActionResult> RecommendedHolidays(UserPreferences preferences)
         {
-            return View();
+            HttpContext.Session.Set("Preferences", preferences);
+
+            var recommendations = await _holidayService.GetRecommendedHolidaysAsync();
+
+            var holidayViewModel = _mapper.Map<IEnumerable<HolidayViewModel>>(recommendations);
+
+            return View(holidayViewModel);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -14,6 +14,14 @@ builder.Services.AddSingleton(new MapperConfiguration(c =>
     c.AddProfile<ViewModelMappings>();
 }).CreateMapper());
 
+builder.Services.AddDistributedMemoryCache();
+
+builder.Services.AddSession(options =>
+{
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+
 builder.Services.AddApplication();
 
 var app = builder.Build();
@@ -37,6 +45,9 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",

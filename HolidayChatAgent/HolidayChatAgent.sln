@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HolidayChatAgent.Repository
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HolidayChatAgent.Services", "HolidayChatAgent.Services\HolidayChatAgent.Services.csproj", "{A08E06C8-BA97-4F77-91C6-22458F8BF79F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolidayChatAgent.Tests", "HolidayChatAgent.Tests\HolidayChatAgent.Tests.csproj", "{4790994A-E5D2-4603-9260-BA6FE43529AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HolidayChatAgent.Tests", "HolidayChatAgent.Tests\HolidayChatAgent.Tests.csproj", "{4790994A-E5D2-4603-9260-BA6FE43529AB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
