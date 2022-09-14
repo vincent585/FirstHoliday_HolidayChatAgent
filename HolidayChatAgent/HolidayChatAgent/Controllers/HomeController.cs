@@ -1,26 +1,41 @@
 ﻿using HolidayChatAgent.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using AutoMapper;
+using HolidayChatAgent.Services.Interfaces;
 
 namespace HolidayChatAgent.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IHolidayService _holidayService;
+        private readonly IMapper _mapper;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IHolidayService holidayService, IMapper mapper)
         {
-            _logger = logger;
+            _holidayService = holidayService ?? throw new ArgumentNullException(nameof(holidayService));
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var holidays = await _holidayService.GetAllHolidaysAsync();
+
+            var holidayViewModel = _mapper.Map<IEnumerable<HolidayViewModel>>(holidays);
+
+            return View("Index", holidayViewModel);
         }
 
-        public IActionResult Privacy()
+        [HttpPost]
+        public async Task<IActionResult> RecommendedHolidays(UserPreferences preferences)
         {
-            return View();
+            HttpContext.Session.Set("Preferences", preferences);
+
+            var recommendations = await _holidayService.GetRecommendedHolidaysAsync();
+
+            var holidayViewModel = _mapper.Map<IEnumerable<HolidayViewModel>>(recommendations);
+
+            return View(holidayViewModel);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

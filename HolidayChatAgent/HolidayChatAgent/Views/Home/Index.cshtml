@@ -1,8 +1,19 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model IEnumerable<HolidayViewModel>
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Welcome to our holiday selection service!</h1>
+    <p class="lead"> Have a look at some of our holidays below, or click "Chat now" if you're not sure where you want to go!</p>
 </div>
+
+<hr />
+
+<partial name="_ChatToast"/>
+
+<div class="row row-cols-4 gy-5">
+    @foreach (var holiday in Model)
+    {
+        <partial name="_Card" model="holiday"/>
+    }
+</div>
+
+<partial name="_ChatForm"/>

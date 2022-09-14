@@ -1,8 +1,7 @@
-﻿namespace HolidayChatAgent.Services.Models.Domain
+﻿namespace HolidayChatAgent.Models
 {
-    public class HolidayDetail
+    public class HolidayViewModel
     {
-        public int Id { get; set; }
         public string HotelName { get; set; } = default!;
         public string? City { get; set; }
         public string Continent { get; set; } = default!;

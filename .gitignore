@@ -12,6 +12,7 @@
 
 .vs/
 HolidayChatAgent/.vs
+HolidayChatAgent/obj
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs

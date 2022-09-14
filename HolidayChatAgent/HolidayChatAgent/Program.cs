@@ -1,4 +1,7 @@
+using AutoMapper;
+using HolidayChatAgent.Mappings;
 using HolidayChatAgent.Services;
+using HolidayChatAgent.Services.Mappings;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,9 +9,28 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpContextAccessor();
 
-var app = builder.Build();
+builder.Services.AddSingleton(new MapperConfiguration(c =>
+{
+    c.AddProfile<ApplicationMappings>();
+    c.AddProfile<ViewModelMappings>();
+}).CreateMapper());
+
+builder.Services.AddDistributedMemoryCache();
+
+builder.Services.AddSession(options =>
+{
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
 
 builder.Services.AddApplication();
+
+var app = builder.Build();
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -24,6 +46,9 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",
