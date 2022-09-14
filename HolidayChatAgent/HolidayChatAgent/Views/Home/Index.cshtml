@@ -1,4 +1,4 @@
-﻿@model IEnumerable<HolidayViewModel>
+﻿@model HolidayViewModel
 
 <div class="text-center">
     <h1 class="display-4">Welcome to our holiday selection service!</h1>
@@ -10,7 +10,7 @@
 <partial name="_ChatToast"/>
 
 <div class="row row-cols-4 gy-5">
-    @foreach (var holiday in Model)
+    @foreach (var holiday in Model.Holidays)
     {
         <partial name="_Card" model="holiday"/>
     }

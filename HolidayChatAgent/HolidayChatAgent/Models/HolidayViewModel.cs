@@ -1,15 +1,10 @@
-﻿namespace HolidayChatAgent.Models
+﻿using HolidayChatAgent.Services.Models.Domain;
+
+namespace HolidayChatAgent.Models
 {
     public class HolidayViewModel
     {
-        public string HotelName { get; set; } = default!;
-        public string? City { get; set; }
-        public string Continent { get; set; } = default!;
-        public string Country { get; set; } = default!;
-        public string Category { get; set; } = default!;
-        public int? StarRating { get; set; }
-        public string TempRating { get; set; } = default!;
-        public string Location { get; set; } = default!;
-        public decimal PricePerNight { get; set; }
+        public IEnumerable<HolidayDetail> Holidays { get; set; } = default!;
+        public UserPreferences UserPreferences { get; set; } = default!;
     }
 }

@@ -1,13 +1,16 @@
-﻿@model IEnumerable<HolidayViewModel>
+﻿@model HolidayViewModel
 
 <div class="text-center">
-    <h1 class="display-4">Here's some holiday destinations based on your search criteria</h1>
+    <h1 class="display-4">Here's some holiday destinations based on your search criteria below:</h1>
+    <p class="lead">
+
+    </p>
 </div>
 
 <hr />
 
 <div class="row row-cols-4 gy-5">
-    @foreach (var holiday in Model)
+    @foreach (var holiday in Model.Holidays)
     {
         <partial name="_Card" model="holiday" />
     }

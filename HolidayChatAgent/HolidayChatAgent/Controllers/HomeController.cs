@@ -10,19 +10,20 @@ namespace HolidayChatAgent.Controllers
     public class HomeController : Controller
     {
         private readonly IHolidayService _holidayService;
-        private readonly IMapper _mapper;
 
-        public HomeController(IHolidayService holidayService, IMapper mapper)
+        public HomeController(IHolidayService holidayService)
         {
             _holidayService = holidayService ?? throw new ArgumentNullException(nameof(holidayService));
-            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
         public async Task<IActionResult> Index()
         {
             var holidays = await _holidayService.GetAllHolidaysAsync();
 
-            var holidayViewModel = _mapper.Map<IEnumerable<HolidayViewModel>>(holidays);
+            var holidayViewModel = new HolidayViewModel()
+            {
+                Holidays = holidays
+            };
 
             return View("Index", holidayViewModel);
         }
@@ -32,7 +33,11 @@ namespace HolidayChatAgent.Controllers
         {
             var recommendations = await _holidayService.GetRecommendedHolidaysAsync(preferences);
 
-            var holidayViewModel = _mapper.Map<IEnumerable<HolidayViewModel>>(recommendations);
+            var holidayViewModel = new HolidayViewModel()
+            {
+                Holidays = recommendations,
+                UserPreferences = preferences
+            };
 
             return View(holidayViewModel);
         }

@@ -1,5 +1,4 @@
 using AutoMapper;
-using HolidayChatAgent.Mappings;
 using HolidayChatAgent.Services;
 using HolidayChatAgent.Services.Mappings;
 
@@ -12,7 +11,6 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddSingleton(new MapperConfiguration(c =>
 {
     c.AddProfile<ApplicationMappings>();
-    c.AddProfile<ViewModelMappings>();
 }).CreateMapper());
 
 builder.Services.AddDistributedMemoryCache();
