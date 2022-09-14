@@ -2,8 +2,14 @@
 
 <div class="text-center">
     <h1 class="display-4">Here's some holiday destinations based on your search criteria below:</h1>
-    <p class="lead">
-
+    <p>
+        Category: @Model.UserPreferences.Category
+    </p>
+    <p>
+        Climate: @Model.UserPreferences.TempRating
+    </p>
+    <p>
+        Max Price: £@Model.UserPreferences.PricePerNight
     </p>
 </div>
 
