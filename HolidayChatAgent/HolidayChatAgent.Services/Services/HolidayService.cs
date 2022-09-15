@@ -31,5 +31,10 @@ namespace HolidayChatAgent.Services.Services
         {
             return _mapper.Map<IEnumerable<HolidayDetail>>(await _holidayRepository.GetAllHolidaysAsync());
         }
+
+        public async Task<HolidayDetail> GetHolidayByIdAsync(int id)
+        {
+            return _mapper.Map<HolidayDetail>(await _holidayRepository.GetHolidayById(id));
+        }
     }
 }
