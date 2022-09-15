@@ -24,7 +24,7 @@ namespace HolidayChatAgent.Controllers
                 Holidays = holidays
             };
 
-            return View("Index", holidayViewModel);
+            return View(holidayViewModel);
         }
 
         public async Task<IActionResult> Details(int id)

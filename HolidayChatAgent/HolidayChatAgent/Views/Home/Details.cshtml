@@ -5,9 +5,12 @@
 </h3>
 
 <div class="row gx-5">
-    <img alt="@Model.HotelName" src="" class="img-fluid col-5"/>
+    <img alt="@Model.HotelName" src="~/images/@(Model.Location).jpg" class="img-fluid col-5"/>
     <div class="col-7">
-        
+        <h4>Where: @Model.Country, @Model.Continent</h4>
+        <h3>Location type: @Model.Location</h3>
+        <p class="lead">This is the perfect holiday for the @Model.Category traveler's among us. Wonderfully @Model.TempRating temperatures, you'll be sure to love this @Model.StarRating-star resort!</p>
+        <h3 class="float-end">@Model.PricePerNight.ToString("c")/night</h3>
     </div>
 </div>
 
