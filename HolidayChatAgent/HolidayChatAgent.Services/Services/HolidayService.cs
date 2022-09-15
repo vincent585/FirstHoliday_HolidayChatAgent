@@ -15,7 +15,7 @@ namespace HolidayChatAgent.Services.Services
         {
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
             _holidayRepository = holidayRepository ?? throw new ArgumentNullException(nameof(holidayRepository));
-            _holidayFilter = holidayFilter ?? throw new NotImplementedException(nameof(holidayFilter));
+            _holidayFilter = holidayFilter ?? throw new ArgumentNullException(nameof(holidayFilter));
         }
 
         public async Task<IEnumerable<HolidayDetail>> GetRecommendedHolidaysAsync(UserPreferences preferences)

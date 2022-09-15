@@ -21,7 +21,8 @@ namespace HolidayChatAgent.Controllers
 
             var holidayViewModel = new HolidayViewModel()
             {
-                Holidays = holidays
+                Holidays = holidays,
+                UserPreferences = new UserPreferences()
             };
 
             return View(holidayViewModel);
