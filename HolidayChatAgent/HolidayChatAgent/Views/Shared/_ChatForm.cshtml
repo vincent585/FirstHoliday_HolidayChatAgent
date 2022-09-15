@@ -5,36 +5,24 @@
     </div>
     <div class="offcanvas-body">
         <div id="chatHistory">
-            Fill out the form below and I will recommend some holidays based on your preferences!
+            <p class="lead">I'm Chattington! Let's me help you find a holiday you'll love.</p>
         </div>
-        <form asp-controller="Home", asp-action="RecommendedHolidays" method="post">
-            <div class="mb-3">
-                <label for="TempRating" class="form-label">What type of weather do you like?</label>
-                <select class="form-select" aria-label="Category select" id="TempRating" name="TempRating">
-                    <option value="cold">Cold</option>
-                    <option value="mild">Mild</option>
-                    <option value="hot">Hot</option>
-                </select>
+        <form asp-controller="Home", id="preferencesForm" asp-action="RecommendedHolidays" method="post">
+            <div id="tempSelect"class="mb-3">
+                <label for="TempRating" id="tempLabel" class="form-label">What type of weather do you like?</label>
+                <input type="text" class="form-control" id="TempRating" name="TempRating" aria-label="TempRating"/>
             </div>
             
-            <div class="mb-3">
-                <label for="category" class="form-label">Are you an active or lazy traveler?</label>
-                <select class="form-select" aria-label="Category select" id="category" name="category">
-                    <option value="active">Active</option>
-                    <option value="lazy">Lazy</option>
-                </select>
+            <div id="categorySelect" class="mb-3" hidden>
+                <label for="category" id="categoryLabel" class="form-label">Are you an active or lazy traveler?</label>
+                <input type="text" class="form-control" id="category" name="category" aria-label="category" />
             </div>
             
-            <div class="mb-3">
-                <label for="pricepernight" class="form-label">What is your max price per night?</label>
-                <select class="form-select" aria-label="Category select" id="pricepernight" name="pricepernight">
-                    <option value="300">£300</option>
-                    <option value="200">£200</option>
-                    <option value="100">£100</option>
-                    <option value="50">£50</option>
-                </select>
+            <div id="priceSelect" class="mb-3" hidden>
+                <label for="pricepernight" id="priceLabel" class="form-label">What is your max price per night?</label>
+                <input type="text" class="form-control" id="pricepernight" name="pricepernight" aria-label="pricepernight" />
             </div>
-            <button type="submit" class="btn btn-primary">Next Question</button>
+            <button type="submit" id="submitBtn" class="btn btn-primary" disabled>Find Holidays</button>
         </form>
     </div>
 </div>
