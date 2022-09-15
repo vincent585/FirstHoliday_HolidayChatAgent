@@ -45,14 +45,14 @@ pricePerNight.addEventListener("keydown",
 
 function handleTempRatingInput() {
     if (isValidTempRating()) {
-        $('#chatHistory').append(`<p><em>${$('#tempLabel').text()}</em></p>`);
-        $('#chatHistory').append(`<p><strong>${tempRating.value}</strong></p>`);
-        $('#chatHistory').append('<em>That\'s great! Next question...</em>');
+        $('#chatHistory').append(`<p><strong>Chattington:</strong> ${$('#tempLabel').text()}</p>`);
+        $('#chatHistory').append(`<p><strong>You:</strong> ${tempRating.value}</p>`);
+        $('#chatHistory').append('<p><strong>Chattington:</strong> That\'s great! Next question...</p>');
         $('#tempSelect').hide();
         $('#categorySelect').removeAttr('hidden');
     } else {
-        $('#chatHistory').append(`<p><strong>${tempRating.value}</strong></p>`);
-        $('#chatHistory').append("<p><em>Sorry, I don't know of a place like that...</em></p>");
+        $('#chatHistory').append(`<p><strong>You:</strong> ${tempRating.value}</p>`);
+        $('#chatHistory').append("<p><strong>Chattington:</strong> Sorry, I don't know of a place like that...</p>");
     }
 }
 
@@ -69,14 +69,14 @@ function isValidTempRating() {
 
 function handleCategoryInput() {
     if (isValidTempRating()) {
-        $('#chatHistory').append(`<p><em>${$('#categoryLabel').text()}</em></p>`);
-        $('#chatHistory').append(`<p><strong>${category.value}</strong></p>`);
-        $('#chatHistory').append('<em>Excellent, I can work with that.</em>');
+        $('#chatHistory').append(`<p><strong>Chattington:</strong> ${$('#categoryLabel').text()}</p>`);
+        $('#chatHistory').append(`<p><strong>You:</strong> ${category.value}</p>`);
+        $('#chatHistory').append('<p><strong>Chattington:</strong> Excellent, I can work with that.</p>');
         $('#categorySelect').hide();
         $('#priceSelect').removeAttr('hidden');
     } else {
-        $('#chatHistory').append(`<p><strong>${category.value}</strong></p>`);
-        $('#chatHistory').append("<p><em>Sorry, I don't know of a place like that...</em></p>");
+        $('#chatHistory').append(`<p><strong>You:</strong> ${category.value}</p>`);
+        $('#chatHistory').append("<p><strong>Chattington:</strong> Sorry, I don't know of a place like that...</p>");
     }
 }
 
@@ -92,16 +92,16 @@ function isValidCategory() {
 
 function handlePriceInput() {
     if (isValidPrice()) {
-        $('#chatHistory').append(`<p><em>${$('#priceLabel').text()}</em></p>`);
-        $('#chatHistory').append(`<p><strong>${pricePerNight.value}</strong></p>`);
-        $('#chatHistory').append('<em>Excellent, I can work with that.</em>');
+        $('#chatHistory').append(`<p><strong>Chattington:</strong> ${$('#priceLabel').text()}</p>`);
+        $('#chatHistory').append(`<p><strong>You:</strong> ${pricePerNight.value}</p>`);
+        $('#chatHistory').append('<p><strong>Chattington:</strong> Excellent, I can work with that.</p>');
         $('#priceSelect').hide();
-        $('#chatHistory').append("<p>I think I've got something for you...click the button below to see what I found!</p>");
+        $('#chatHistory').append("<p><strong>Chattington:</strong> I think I've got something for you...click the button below to see what I found!</p>");
         $('#submitBtn').removeAttr('disabled');
 
     } else {
-        $('#chatHistory').append(`<p><strong>${category.value}</strong></p>`);
-        $('#chatHistory').append("<p><em>Sorry, I don't think they will accept that as payment.</em></p>");
+        $('#chatHistory').append(`<p><strong>You:</strong> ${category.value}</p>`);
+        $('#chatHistory').append("<p><strong>Chattington:</strong> Sorry, I don't think they will accept that as payment.</p>");
     }
 }
 
