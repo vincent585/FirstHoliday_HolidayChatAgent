@@ -1,7 +1,6 @@
-﻿using AutoFixture;
-using AutoMapper;
+﻿using System.Net;
+using AutoFixture;
 using FluentAssertions;
-using FluentAssertions.Execution;
 using HolidayChatAgent.Controllers;
 using HolidayChatAgent.Models;
 using HolidayChatAgent.Services.Interfaces;
@@ -58,7 +57,61 @@ namespace HolidayChatAgent.Tests.ControllerTests
             var result = await _sut.Index() as ViewResult;
 
             result.Model.Should().BeEquivalentTo(expectedViewModel);
+        }
 
+        [Test]
+        public async Task Details_WhenCalled_CallsHolidayServiceOnce()
+        {
+            await _sut.Details(It.IsAny<int>());
+
+            _holidayServiceMock.Verify(x => x.GetHolidayByIdAsync(It.IsAny<int>()), Times.Once);
+        }
+
+        [Test]
+        public async Task Details_WhenHolidayNotFound_ReturnsNotFound()
+        {
+            _holidayServiceMock.Setup(x => x.GetHolidayByIdAsync(It.IsAny<int>()))!.ReturnsAsync((HolidayDetail)null!);
+
+            var result = await _sut.Details(It.IsAny<int>()) as NotFoundResult;
+
+            result.StatusCode.Should().Be((int)HttpStatusCode.NotFound);
+        }
+
+        [Test]
+        public async Task Details_WhenHolidayFound_CallsDetailsViewWithCorrectModel()
+        {
+            var holiday = _fixture.Create<HolidayDetail>();
+
+            _holidayServiceMock.Setup(x => x.GetHolidayByIdAsync(It.IsAny<int>())).ReturnsAsync(holiday);
+
+            var result = await _sut.Details(It.IsAny<int>()) as ViewResult;
+
+            result.Model.Should().Be(holiday);
+        }
+
+        [Test]
+        public async Task RecommendedHolidays_WhenCalled_CallsHolidayService()
+        {
+            await _sut.RecommendedHolidays(It.IsAny<UserPreferences>());
+
+            _holidayServiceMock.Verify(x => x.GetRecommendedHolidaysAsync(It.IsAny<UserPreferences>()), Times.Once);
+        }
+
+        [Test]
+        public async Task RecommendedHolidays_WhenCalled_CallsViewWithCorrectModel()
+        {
+            var holidayDetails = _fixture.CreateMany<HolidayDetail>();
+            var expectedViewModel = _fixture.Build<HolidayViewModel>()
+                .With(x => x.Holidays, holidayDetails)
+                .With(x => x.UserPreferences, It.IsAny<UserPreferences>())
+                .Create();
+
+
+            _holidayServiceMock.Setup(x => x.GetRecommendedHolidaysAsync(It.IsAny<UserPreferences>())).ReturnsAsync(holidayDetails);
+
+            var result = await _sut.RecommendedHolidays(It.IsAny<UserPreferences>()) as ViewResult;
+
+            result.Model.Should().BeEquivalentTo(expectedViewModel);
         }
     }
 }
