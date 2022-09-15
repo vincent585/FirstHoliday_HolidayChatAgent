@@ -96,7 +96,8 @@ function handlePriceInput() {
         $('#chatHistory').append(`<p><strong>${pricePerNight.value}</strong></p>`);
         $('#chatHistory').append('<em>Excellent, I can work with that.</em>');
         $('#priceSelect').hide();
-        $('#chatHistory').append("<p>I think I've got something for you... Click the button below to see what I've found.</p>");
+        $('#chatHistory').append("<p>I think I've got something for you...click the button below to see what I found!</p>");
+        $('#submitBtn').removeAttr('disabled');
 
     } else {
         $('#chatHistory').append(`<p><strong>${category.value}</strong></p>`);
