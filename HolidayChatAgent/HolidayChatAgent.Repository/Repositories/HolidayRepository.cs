@@ -22,5 +22,14 @@ namespace HolidayChatAgent.Repository.Repositories
             return await connection.QueryAsync<HolidayDto>("dbo.Holidays_GetAll",
                 commandType: CommandType.StoredProcedure);
         }
+
+        public async Task<HolidayDto> GetHolidayById(int id)
+        {
+            using var connection = _dbConnectionFactory.Create();
+
+            return await connection.QueryFirstOrDefaultAsync<HolidayDto>("dbo.Holidays_GetById",
+                new { Id = id },
+                commandType: CommandType.StoredProcedure);
+        }
     }
 }

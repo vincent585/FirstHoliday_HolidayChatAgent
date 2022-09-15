@@ -1,8 +1,7 @@
-﻿CREATE PROCEDURE [dbo].[Holidays_GetAll]
+﻿CREATE PROCEDURE [dbo].[Holidays_GetById]
+	@Id int = 0
 AS
-
 SELECT
-    H.Id,
 	HotelName,
 	City,
 	CONT.Name AS Continent,
@@ -21,3 +20,4 @@ FROM
 	INNER JOIN [dbo].[Categories] CAT ON CAT.Id = H.CategoryId
 	INNER JOIN [dbo].[TempRatings] TR ON TR.Id = H.TempRatingId
 	INNER JOIN [dbo].[Locations] L ON L.Id = H.LocationId
+WHERE H.Id = @Id

@@ -1,7 +1,6 @@
 ﻿using HolidayChatAgent.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using AutoMapper;
 using HolidayChatAgent.Services.Interfaces;
 using HolidayChatAgent.Services.Models.Domain;
 
@@ -25,7 +24,16 @@ namespace HolidayChatAgent.Controllers
                 Holidays = holidays
             };
 
-            return View("Index", holidayViewModel);
+            return View(holidayViewModel);
+        }
+
+        public async Task<IActionResult> Details(int id)
+        {
+            var holiday = await _holidayService.GetHolidayByIdAsync(id);
+
+            if (holiday == null) return NotFound();
+
+            return View(holiday);
         }
 
         [HttpPost]

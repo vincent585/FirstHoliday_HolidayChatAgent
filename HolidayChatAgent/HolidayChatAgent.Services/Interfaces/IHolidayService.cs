@@ -6,5 +6,6 @@ namespace HolidayChatAgent.Services.Interfaces
     {
         Task<IEnumerable<HolidayDetail>> GetRecommendedHolidaysAsync(UserPreferences preferences);
         Task<IEnumerable<HolidayDetail>> GetAllHolidaysAsync();
+        Task<HolidayDetail> GetHolidayByIdAsync(int id);
     }
 }
