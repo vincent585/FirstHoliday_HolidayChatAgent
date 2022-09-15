@@ -9,20 +9,22 @@ namespace HolidayChatAgent.Services.Services
     {
         private readonly IMapper _mapper;
         private readonly IHolidayRepository _holidayRepository;
+        private readonly IHolidayFilter _holidayFilter;
 
-        public HolidayService(IMapper mapper, IHolidayRepository holidayRepository)
+        public HolidayService(IMapper mapper, IHolidayRepository holidayRepository, IHolidayFilter holidayFilter)
         {
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
             _holidayRepository = holidayRepository ?? throw new ArgumentNullException(nameof(holidayRepository));
+            _holidayFilter = holidayFilter ?? throw new NotImplementedException(nameof(holidayFilter));
         }
 
-        public async Task<IEnumerable<HolidayDetail>> GetRecommendedHolidaysAsync()
+        public async Task<IEnumerable<HolidayDetail>> GetRecommendedHolidaysAsync(UserPreferences preferences)
         {
             var holidayDtos = await _holidayRepository.GetAllHolidaysAsync();
 
-            // TODO - Create and implement a IHolidayFilter to call _holidayFilter.FilterHolidays(holidayDtos);
+            var recommendedHolidays = _holidayFilter.FilterHolidays(holidayDtos, preferences);
 
-            return _mapper.Map<IEnumerable<HolidayDetail>>(holidayDtos);
+            return _mapper.Map<IEnumerable<HolidayDetail>>(recommendedHolidays);
         }
 
         public async Task<IEnumerable<HolidayDetail>> GetAllHolidaysAsync()

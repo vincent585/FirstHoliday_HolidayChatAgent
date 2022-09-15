@@ -15,7 +15,6 @@ namespace HolidayChatAgent.Tests.ControllerTests
     [TestFixture]
     public class HomeControllerTests
     {
-        private Mock<IMapper> _mapperMock;
         private Mock<IHolidayService> _holidayServiceMock;
         private Fixture _fixture;
         private HomeController _sut;
@@ -23,24 +22,16 @@ namespace HolidayChatAgent.Tests.ControllerTests
         [SetUp]
         public void Setup()
         {
-            _mapperMock = new Mock<IMapper>();
             _holidayServiceMock = new Mock<IHolidayService>();
             _fixture = new Fixture();
-            _sut = new HomeController(_holidayServiceMock.Object, _mapperMock.Object);
+            _sut = new HomeController(_holidayServiceMock.Object);
         }
 
         [Test]
         public void Constructor_WhenHolidayServiceIsNull_ThrowsArgumentNullException()
         {
-            var constructor = () => new HomeController(null, _mapperMock.Object);
+            var constructor = () => new HomeController(null);
             constructor.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("holidayService");
-        }
-
-        [Test]
-        public void Constructor_MapperIsNull_ThrowsArgumentNullException()
-        {
-            var constructor = () => new HomeController(_holidayServiceMock.Object, null);
-            constructor.Should().Throw<ArgumentNullException>().And.ParamName.Should().Be("mapper");
         }
 
         [Test]
@@ -52,14 +43,6 @@ namespace HolidayChatAgent.Tests.ControllerTests
         }
 
         [Test]
-        public async Task Index_WhenCalled_CallsMapperOnce()
-        {
-            await _sut.Index();
-
-            _mapperMock.Verify(x => x.Map<IEnumerable<HolidayViewModel>>(It.IsAny<IEnumerable<HolidayDetail>>()), Times.Once);
-        }
-
-        [Test]
         public async Task Index_WhenCalled_CallsViewWithCorrectViewModel()
         {
             var expectedViewModel = _fixture.CreateMany<HolidayViewModel>();
@@ -67,8 +50,6 @@ namespace HolidayChatAgent.Tests.ControllerTests
 
             _holidayServiceMock.Setup(x => x.GetAllHolidaysAsync()).ReturnsAsync(holidayDetails);
 
-            _mapperMock.Setup(x => x.Map<IEnumerable<HolidayViewModel>>(holidayDetails))
-                .Returns(expectedViewModel);
 
             var result = await _sut.Index() as ViewResult;
             using (new AssertionScope())
