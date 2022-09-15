@@ -45,19 +45,20 @@ namespace HolidayChatAgent.Tests.ControllerTests
         [Test]
         public async Task Index_WhenCalled_CallsViewWithCorrectViewModel()
         {
-            var expectedViewModel = _fixture.CreateMany<HolidayViewModel>();
             var holidayDetails = _fixture.CreateMany<HolidayDetail>();
+            var expectedViewModel = _fixture.Build<HolidayViewModel>()
+                .With(x => x.Holidays, holidayDetails)
+                .With(x => x.UserPreferences, new UserPreferences())
+                .Create();
+            
 
             _holidayServiceMock.Setup(x => x.GetAllHolidaysAsync()).ReturnsAsync(holidayDetails);
 
 
             var result = await _sut.Index() as ViewResult;
-            using (new AssertionScope())
-            {
-                result.ViewName.Should().Be("Index");
-                result.Model.Should().BeEquivalentTo(expectedViewModel);
-            }
-            
+
+            result.Model.Should().BeEquivalentTo(expectedViewModel);
+
         }
     }
 }
