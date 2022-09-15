@@ -1,9 +1,7 @@
-﻿using AutoMapper;
-using HolidayChatAgent.Repository.DbConnection;
+﻿using HolidayChatAgent.Repository.DbConnection;
 using HolidayChatAgent.Repository.Interfaces;
 using HolidayChatAgent.Repository.Repositories;
 using HolidayChatAgent.Services.Interfaces;
-using HolidayChatAgent.Services.Mappings;
 using HolidayChatAgent.Services.Services;
 using Microsoft.Extensions.DependencyInjection;
 
