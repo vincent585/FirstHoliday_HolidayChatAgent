@@ -2,6 +2,7 @@
 AS
 
 SELECT
+    H.Id,
 	HotelName,
 	City,
 	CONT.Name AS Continent,

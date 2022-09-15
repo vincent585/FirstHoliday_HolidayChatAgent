@@ -31,6 +31,8 @@ namespace HolidayChatAgent.Controllers
         {
             var holiday = await _holidayService.GetHolidayByIdAsync(id);
 
+            if (holiday == null) return NotFound();
+
             return View(holiday);
         }
 

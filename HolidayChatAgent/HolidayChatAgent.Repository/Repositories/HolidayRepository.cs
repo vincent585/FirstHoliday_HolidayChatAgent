@@ -28,6 +28,7 @@ namespace HolidayChatAgent.Repository.Repositories
             using var connection = _dbConnectionFactory.Create();
 
             return await connection.QueryFirstOrDefaultAsync<HolidayDto>("dbo.Holidays_GetById",
+                new { Id = id },
                 commandType: CommandType.StoredProcedure);
         }
     }
