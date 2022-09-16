@@ -15,13 +15,6 @@ const tempRating = document.getElementById("TempRating");
 const category = document.getElementById("category");
 const pricePerNight = document.getElementById("pricepernight");
 
-document.getElementById("preferencesForm").onkeypress = function(e) {
-    const key = e.charCode || e.keyCode || 0;
-    if (key === 13) {
-        e.preventDefault();
-    }
-}
-
 tempRating.addEventListener("keydown",
     function(e) {
         if (e.code === "Enter") {
@@ -97,7 +90,6 @@ function handlePriceInput() {
         $('#chatHistory').append('<p><strong>Chattington:</strong> That is great, thank you..</p>');
         $('#priceSelect').hide();
         $('#chatHistory').append("<p><strong>Chattington:</strong> I think I've got something for you...click the button below to see what I found!</p>");
-        $('#submitBtn').removeAttr('disabled');
 
     } else {
         $('#chatHistory').append(`<p><strong>You:</strong> ${category.value}</p>`);
