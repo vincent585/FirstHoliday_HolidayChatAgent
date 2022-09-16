@@ -90,10 +90,12 @@ function handlePriceInput() {
         $('#chatHistory').append('<p><strong>Chattington:</strong> That is great, thank you..</p>');
         $('#priceSelect').hide();
         $('#chatHistory').append("<p><strong>Chattington:</strong> I think I've got something for you...click the button below to see what I found!</p>");
+        $('#submitBtn').removeAttr('disabled');
 
     } else {
         $('#chatHistory').append(`<p><strong>You:</strong> ${category.value}</p>`);
         $('#chatHistory').append("<p><strong>Chattington:</strong> Sorry, I don't think they will accept that as payment.</p>");
+
     }
 }
 
