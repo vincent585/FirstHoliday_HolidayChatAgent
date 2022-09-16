@@ -1,15 +1,25 @@
 ﻿@model HolidayViewModel
 
 <div class="text-center">
-    <h1 class="display-4">Here's some holiday destinations based on your search criteria below:</h1>
-    <p>
-        Category: @Model.UserPreferences.Category
+    @{
+        if (Model.Holidays.Any())
+        {
+            <h1 class="display-4">Here's some holiday destinations based on your search criteria below:</h1>
+        }
+        else
+        {
+            <h1 class="display-4">Sorry, we couldn't find any holidays based on your search criteria below:</h1>
+        }
+    }
+    
+    <p class="lead">
+        <strong>Category:</strong> @Model.UserPreferences.Category
     </p>
-    <p>
-        Climate: @Model.UserPreferences.TempRating
+    <p class="lead">
+        <strong>Climate:</strong> @Model.UserPreferences.TempRating
     </p>
-    <p>
-        Max Price: £@Model.UserPreferences.PricePerNight
+    <p class="lead">
+        <strong>Max Price:</strong> £@Model.UserPreferences.PricePerNight
     </p>
 </div>
 
@@ -21,3 +31,6 @@
         <partial name="_Card" model="holiday" />
     }
 </div>
+
+<partial name="_ChatToast" />
+<partial name="_ChatForm" />
