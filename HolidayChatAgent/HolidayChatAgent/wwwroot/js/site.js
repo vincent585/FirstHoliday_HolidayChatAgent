@@ -94,7 +94,7 @@ function handlePriceInput() {
     if (isValidPrice()) {
         $('#chatHistory').append(`<p><strong>Chattington:</strong> ${$('#priceLabel').text()}</p>`);
         $('#chatHistory').append(`<p><strong>You:</strong> ${pricePerNight.value}</p>`);
-        $('#chatHistory').append('<p><strong>Chattington:</strong> Excellent, I can work with that.</p>');
+        $('#chatHistory').append('<p><strong>Chattington:</strong> That is great, thank you..</p>');
         $('#priceSelect').hide();
         $('#chatHistory').append("<p><strong>Chattington:</strong> I think I've got something for you...click the button below to see what I found!</p>");
         $('#submitBtn').removeAttr('disabled');
