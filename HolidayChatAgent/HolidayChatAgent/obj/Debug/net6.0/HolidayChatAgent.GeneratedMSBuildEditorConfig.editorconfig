@@ -15,16 +15,32 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\vincent.klimjack\source\repos\vincent585\FirstHoliday_HolidayChatAgent\HolidayChatAgent\HolidayChatAgent
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/vincent.klimjack/source/repos/vincent585/FirstHoliday_HolidayChatAgent/HolidayChatAgent/HolidayChatAgent/Views/Home/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/vincent.klimjack/source/repos/vincent585/FirstHoliday_HolidayChatAgent/HolidayChatAgent/HolidayChatAgent/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vincent.klimjack/source/repos/vincent585/FirstHoliday_HolidayChatAgent/HolidayChatAgent/HolidayChatAgent/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+[C:/Users/vincent.klimjack/source/repos/vincent585/FirstHoliday_HolidayChatAgent/HolidayChatAgent/HolidayChatAgent/Views/Home/RecommendedHolidays.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZWNvbW1lbmRlZEhvbGlkYXlzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/vincent.klimjack/source/repos/vincent585/FirstHoliday_HolidayChatAgent/HolidayChatAgent/HolidayChatAgent/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vincent.klimjack/source/repos/vincent585/FirstHoliday_HolidayChatAgent/HolidayChatAgent/HolidayChatAgent/Views/Shared/_Card.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9DYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vincent.klimjack/source/repos/vincent585/FirstHoliday_HolidayChatAgent/HolidayChatAgent/HolidayChatAgent/Views/Shared/_ChatForm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9DaGF0Rm9ybS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vincent.klimjack/source/repos/vincent585/FirstHoliday_HolidayChatAgent/HolidayChatAgent/HolidayChatAgent/Views/Shared/_ChatToast.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9DaGF0VG9hc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/vincent.klimjack/source/repos/vincent585/FirstHoliday_HolidayChatAgent/HolidayChatAgent/HolidayChatAgent/Views/Shared/_ValidationScriptsPartial.cshtml]

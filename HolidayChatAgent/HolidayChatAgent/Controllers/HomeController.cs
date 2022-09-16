@@ -1,26 +1,54 @@
 ﻿using HolidayChatAgent.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using HolidayChatAgent.Services.Interfaces;
+using HolidayChatAgent.Services.Models.Domain;
 
 namespace HolidayChatAgent.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IHolidayService _holidayService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IHolidayService holidayService)
         {
-            _logger = logger;
+            _holidayService = holidayService ?? throw new ArgumentNullException(nameof(holidayService));
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var holidays = await _holidayService.GetAllHolidaysAsync();
+
+            var holidayViewModel = new HolidayViewModel()
+            {
+                Holidays = holidays,
+                UserPreferences = new UserPreferences()
+            };
+
+            return View(holidayViewModel);
         }
 
-        public IActionResult Privacy()
+        public async Task<IActionResult> Details(int id)
         {
-            return View();
+            var holiday = await _holidayService.GetHolidayByIdAsync(id);
+
+            if (holiday == null) return NotFound();
+
+            return View(holiday);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> RecommendedHolidays(UserPreferences preferences)
+        {
+            var recommendations = await _holidayService.GetRecommendedHolidaysAsync(preferences);
+
+            var holidayViewModel = new HolidayViewModel()
+            {
+                Holidays = recommendations,
+                UserPreferences = preferences
+            };
+
+            return View(holidayViewModel);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

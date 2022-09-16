@@ -58,6 +58,7 @@
     <Folder Include="Properties" />
     <Folder Include="Tables" />
     <Folder Include="Stored Procedures" />
+    <Folder Include="Scripts" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Holidays.sql" />
@@ -67,8 +68,12 @@
     <Build Include="Tables\TempRatings.sql" />
     <Build Include="Tables\Locations.sql" />
     <Build Include="Stored Procedures\Holidays_GetAll.sql" />
+    <Build Include="Stored Procedures\Holidays_GetById.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="HolidayChatAgent.Database.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Scripts\Script.PostDeployment.sql" />
   </ItemGroup>
 </Project>
