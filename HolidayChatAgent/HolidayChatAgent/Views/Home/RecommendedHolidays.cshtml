@@ -1,7 +1,19 @@
 ﻿@model HolidayViewModel
 
 <div class="text-center">
-    <h1 class="display-4">Here's some holiday destinations based on your search criteria below:</h1>
+    @{
+        if (Model.Holidays.Any())
+        {
+            <h1 class="display-4">Here's some holiday destinations based on your search criteria below:</h1>
+        }
+        else
+        {
+            <h1 class="display-4">Sorry, we couldn't find any holidays based on your search criteria below:</h1>
+            <partial name="_ChatToast" />
+            <partial name="_ChatForm" />
+        }
+    }
+    
     <p class="lead">
         <strong>Category:</strong> @Model.UserPreferences.Category
     </p>
